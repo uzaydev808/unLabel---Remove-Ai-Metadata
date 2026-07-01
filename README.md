@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# unLabel — Remove AI Metadata from Images
 
-## Getting Started
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fuzaydev808%2FunLabel---Remove-Ai-Metadata)
+[![Stack](https://img.shields.io/badge/Stack-Next.js%2016%20%C2%B7%20React%2019%20%C2%B7%20sharp-black)](https://github.com/uzaydev808/unLabel---Remove-Ai-Metadata)
 
-First, run the development server:
+**unLabel** is a privacy-first web utility to strip AI-generated metadata tags (EXIF, XMP, C2PA) from your photos. Social media platforms like Instagram and Facebook read these hidden signatures to automatically flag images as "Made with AI" or "AI-generated" — even after minor edits or Generative Fill. unLabel cleans your files instantly, direct in your browser, leaving no footprint on the server.
+
+*Strip the label, keep the image.*
+
+---
+
+## ⚡ Features
+
+- **Single-Click Metadata Stripping** — Drops EXIF, XMP, C2PA metadata from JPEGs, PNGs, and WebPs.
+- **Zero-Storage Privacy** — Image files are processed in-memory via server route handlers and streamed back immediately. Nothing is stored on disk.
+- **Neobrutalism UI** — A clean, distinctive, responsive dashboard designed for high readability and fast interaction.
+- **SEO & Indexing Ready** — Built-in dynamic sitemaps and search crawler configuration.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 16.2.x (App Router, Turbopack)
+- **Library:** React 19 (Server Components)
+- **Styles:** Tailwind CSS v4
+- **Engine:** `sharp` (Native Node.js image processing)
+- **Validation:** Zod
+- **Package Manager:** Bun
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have [Bun](https://bun.sh) installed.
+
+### Development
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/uzaydev808/unLabel---Remove-Ai-Metadata.git
+   cd unLabel---Remove-Ai-Metadata
+   ```
+
+2. Install dependencies:
+   ```bash
+   bun install
+   ```
+
+3. Start the local server:
+   ```bash
+   bun run dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) to view the application.
+
+### Production Build
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run build
+bun start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔒 Privacy & Security
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Files uploaded to unLabel are parsed entirely in memory as a Node.js Buffer, processed with `sharp`'s `.withMetadata(false)` functionality, and sent back as a download stream. No cloud storage (Vercel Blob, AWS S3, etc.) or local file systems are used. Your data stays yours.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📜 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License. Feel free to self-host and customize!
