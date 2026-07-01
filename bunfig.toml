@@ -1,0 +1,3 @@
+[install]
+# Force Bun to resolve binaries for Linux x64 during Vercel build
+frozen-lockfile = false
