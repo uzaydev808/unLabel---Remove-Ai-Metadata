@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-neo-bg: #f0ede5;
+  --color-neo-black: #1a1a1a;
+  --color-neo-white: #ffffff;
+  --color-neo-red: #ff5c5c;
+  --color-neo-yellow: #ffeb5c;
+  --color-neo-blue: #5b8def;
+  --color-neo-green: #6bcb77;
+  --color-neo-orange: #ff8c42;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-neo-bg: var(--color-neo-bg);
+  --color-neo-black: var(--color-neo-black);
+  --color-neo-white: var(--color-neo-white);
+  --color-neo-red: var(--color-neo-red);
+  --color-neo-yellow: var(--color-neo-yellow);
+  --color-neo-blue: var(--color-neo-blue);
+  --color-neo-green: var(--color-neo-green);
+  --color-neo-orange: var(--color-neo-orange);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  border-color: var(--color-neo-black);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-neo-bg);
+  color: var(--color-neo-black);
+  font-family: var(--font-display);
+}
+
+/* Neobrutalism utility: hard offset shadow */
+.neo-shadow {
+  box-shadow: 4px 4px 0px var(--color-neo-black);
+}
+
+.neo-shadow-sm {
+  box-shadow: 3px 3px 0px var(--color-neo-black);
+}
+
+.neo-shadow-lg {
+  box-shadow: 6px 6px 0px var(--color-neo-black);
+}
+
+/* Pressed / active state — shadow collapses inward */
+.neo-shadow:active {
+  box-shadow: inset 2px 2px 0px var(--color-neo-black);
 }
